@@ -1,0 +1,22 @@
+syntax = "proto3";
+package proto;
+
+service Greeter {
+  //一元请求：单次请求+响应
+  rpc SayHello (HelloRequest) returns (HelloReply) {};
+  //服务端流式RPC：客服端发起一次请求，服务端通过流式响应多次发送数据集，客户端Recv接收数据集
+  rpc SayList (HelloRequest) returns (stream HelloReply) {};
+  //客户端流式RPC
+  rpc SayRecord (stream HelloRequest) returns (HelloReply) {}
+  //双向流
+  rpc SayRoute (stream HelloRequest) returns (stream HelloReply) {}
+}
+
+message HelloRequest {
+  //类型 字段名 字段编号
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
