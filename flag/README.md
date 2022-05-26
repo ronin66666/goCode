@@ -35,7 +35,7 @@ name :  hello
 最常见的功能是子命令的使用，一个工具可能包含了大量相关联的功能命令，以此形成工具集
 
 ```go
-func test2()  {
+func main()  {
    var name string
    flag.Parse() //解析命令行参数，参数会储存到flag.Args中
    args := flag.Args() //获取输入命令参数
